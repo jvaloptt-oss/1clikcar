@@ -115,6 +115,16 @@ export default function Home() {
           </div>
         </div>
       </section>
+            <div className="md:col-span-2 flex items-start gap-3 text-sm text-gray-600">
+  <input type="checkbox" required className="mt-1" />
+  <p>
+    He leído y acepto la{" "}
+    <a href="/privacidad" className="text-blue-700 underline">
+      política de privacidad
+    </a>{" "}
+    y autorizo el tratamiento de mis datos.
+  </p>
+</div>
 
       {/* FORMULARIO */}
       <section id="form" className="py-32 bg-white px-6">
