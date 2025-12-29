@@ -165,8 +165,14 @@ export default function Home() {
 
       {/* FOOTER */}
       <footer className="bg-gray-100 text-center py-10 text-gray-500 text-sm">
-        © {new Date().getFullYear()} 1ClikCar · Compra directa de vehículos
-      </footer>
+  © {new Date().getFullYear()} 1ClikCar · Compra directa de vehículos
+  <div className="mt-3 space-x-3">
+    <a href="/aviso-legal" className="underline">Aviso legal</a>
+    <a href="/privacidad" className="underline">Privacidad</a>
+    <a href="/cookies" className="underline">Cookies</a>
+  </div>
+</footer>
+
     </>
   );
 }
