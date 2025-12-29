@@ -58,6 +58,18 @@ export default function Home() {
           </div>
         </div>
       </section>
+      {/* METRICAS */}
+<section className="bg-gray-50 py-24">
+  <div className="max-w-6xl mx-auto px-6 text-center">
+    <div className="grid md:grid-cols-4 gap-8">
+      <Metric number="+1.200" label="Coches analizados" />
+      <Metric number="24h" label="Tiempo medio de respuesta" />
+      <Metric number="100%" label="Compra directa" />
+      <Metric number="España" label="Cobertura nacional" />
+    </div>
+  </div>
+</section>
+
 
       {/* DIFERENCIA */}
       <section className="bg-blue-900 text-white py-24">
@@ -81,6 +93,39 @@ export default function Home() {
       >
         <MessageCircle size={28} />
       </a>
+      {/* FAQ */}
+<section className="bg-gray-100 py-24">
+  <div className="max-w-4xl mx-auto px-6">
+    <h2 className="text-4xl font-extrabold text-center mb-16">
+      Preguntas frecuentes
+    </h2>
+
+    <FAQ
+      q="¿La valoración es gratuita?"
+      a="Sí, totalmente gratuita y sin compromiso."
+    />
+    <FAQ
+      q="¿Tengo que aceptar la oferta?"
+      a="No. Tú decides si te encaja la propuesta."
+    />
+    <FAQ
+      q="¿Cómo se realiza el pago?"
+      a="Pago mediante transferencia bancaria segura."
+    />
+    <FAQ
+      q="¿Compráis coches con muchos kilómetros?"
+      a="Sí, analizamos cada vehículo de forma individual."
+    />
+  </div>
+</section>
+function FAQ({ q, a }: any) {
+  return (
+    <div className="mb-6">
+      <h3 className="font-bold text-lg mb-2">{q}</h3>
+      <p className="text-gray-600">{a}</p>
+    </div>
+  );
+}
 
       {/* FOOTER */}
       <footer className="text-center py-10 text-gray-500">
@@ -108,6 +153,37 @@ function Feature({ icon, title, text }: any) {
       <div className="mb-4 flex justify-center">{icon}</div>
       <h3 className="text-2xl font-bold">{title}</h3>
       <p className="opacity-80 mt-2">{text}</p>
+    </div>
+  );
+}
+{/* TESTIMONIOS */}
+<section className="py-24 bg-white">
+  <div className="max-w-6xl mx-auto px-6">
+    <h2 className="text-4xl font-extrabold text-center mb-16">
+      Opiniones de clientes
+    </h2>
+
+    <div className="grid md:grid-cols-3 gap-8">
+      <Testimonial
+        text="Proceso muy claro y sin sorpresas. Me explicaron todo desde el principio y el pago fue rápido."
+        author="Carlos · Madrid"
+      />
+      <Testimonial
+        text="Nada que ver con concesionarios. Trato profesional y directo."
+        author="Laura · Valencia"
+      />
+      <Testimonial
+        text="Me dieron confianza desde el primer contacto. Repetiría sin dudar."
+        author="Miguel · Sevilla"
+      />
+    </div>
+  </div>
+</section>
+function Testimonial({ text, author }: any) {
+  return (
+    <div className="bg-gray-50 p-8 rounded-2xl shadow">
+      <p className="text-gray-700 mb-6 italic">“{text}”</p>
+      <p className="font-semibold text-blue-700">{author}</p>
     </div>
   );
 }
@@ -174,5 +250,14 @@ function CompleteForm() {
         </button>
       </div>
     </div>
+    function Metric({ number, label }: any) {
+  return (
+    <div className="bg-white rounded-2xl shadow-lg p-8">
+      <div className="text-4xl font-extrabold text-blue-700 mb-2">
+        {number}
+      </div>
+      <p className="text-gray-600 font-medium">{label}</p>
+    </div>
   );
 }
+
