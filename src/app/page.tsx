@@ -1,8 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, HTMLMotionProps } from "framer-motion";
 import { MessageCircle, ShieldCheck, Clock, Euro } from "lucide-react";
+
+/* =====================
+   FIX TYPING FRAMER
+===================== */
+const MotionDiv = (props: HTMLMotionProps<"div">) => (
+  <motion.div {...props} />
+);
 
 /* =====================
    ANIMATION VARIANTS
@@ -32,7 +39,7 @@ export default function Home() {
 
       {/* HERO */}
       <section className="bg-gradient-to-b from-blue-50 to-white py-32 px-6">
-        <motion.div
+        <MotionDiv
           initial="hidden"
           animate="visible"
           variants={fadeUp}
@@ -56,7 +63,7 @@ export default function Home() {
           >
             Enviar datos del vehículo
           </a>
-        </motion.div>
+        </MotionDiv>
       </section>
 
       {/* PROCESO */}
@@ -72,7 +79,7 @@ export default function Home() {
               { n: "2", t: "Contacto", d: "Te llamamos o escribimos." },
               { n: "3", t: "Compra", d: "Compra directa y segura." },
             ].map((s, i) => (
-              <motion.div
+              <MotionDiv
                 key={i}
                 initial="hidden"
                 whileInView="visible"
@@ -85,36 +92,9 @@ export default function Home() {
                 </div>
                 <h3 className="text-2xl font-bold">{s.t}</h3>
                 <p className="text-gray-600 mt-2">{s.d}</p>
-              </motion.div>
+              </MotionDiv>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* METRICAS */}
-      <section className="bg-gray-50 py-24">
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-4 gap-8 text-center">
-          {[
-            ["+1.200", "Coches analizados"],
-            ["24h", "Tiempo medio de respuesta"],
-            ["100%", "Compra directa"],
-            ["España", "Cobertura nacional"],
-          ].map((m, i) => (
-            <motion.div
-              key={i}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-white rounded-2xl shadow-lg p-8"
-            >
-              <div className="text-4xl font-extrabold text-blue-700 mb-2">
-                {m[0]}
-              </div>
-              <p className="text-gray-600 font-medium">{m[1]}</p>
-            </motion.div>
-          ))}
         </div>
       </section>
 
@@ -122,11 +102,19 @@ export default function Home() {
       <section className="bg-blue-900 text-white py-24">
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-12 px-6">
           {[
-            { icon: <Euro size={36} />, t: "Precio real", d: "Oferta directa sin subastas." },
+            {
+              icon: <Euro size={36} />,
+              t: "Precio real",
+              d: "Oferta directa sin subastas.",
+            },
             { icon: <Clock size={36} />, t: "Rapidez", d: "Proceso ágil y claro." },
-            { icon: <ShieldCheck size={36} />, t: "Seguridad", d: "Compra profesional." },
+            {
+              icon: <ShieldCheck size={36} />,
+              t: "Seguridad",
+              d: "Compra profesional.",
+            },
           ].map((f, i) => (
-            <motion.div
+            <MotionDiv
               key={i}
               initial="hidden"
               whileInView="visible"
@@ -138,7 +126,7 @@ export default function Home() {
               <div className="mb-4 flex justify-center">{f.icon}</div>
               <h3 className="text-2xl font-bold">{f.t}</h3>
               <p className="opacity-80 mt-2">{f.d}</p>
-            </motion.div>
+            </MotionDiv>
           ))}
         </div>
       </section>
@@ -160,8 +148,13 @@ export default function Home() {
       {/* FOOTER */}
       <footer className="bg-gray-100 text-center py-10 text-gray-500">
         © {new Date().getFullYear()} 1ClikCar ·{" "}
-        <a href="/quienes-somos" className="underline">Quiénes somos</a> ·{" "}
-        <a href="/privacidad" className="underline">Privacidad</a>
+        <a href="/quienes-somos" className="underline">
+          Quiénes somos
+        </a>{" "}
+        ·{" "}
+        <a href="/privacidad" className="underline">
+          Privacidad
+        </a>
       </footer>
     </>
   );
@@ -188,7 +181,7 @@ function CompleteForm() {
   };
 
   return (
-    <motion.div
+    <MotionDiv
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
@@ -235,6 +228,6 @@ function CompleteForm() {
           Recibir oferta sin compromiso
         </button>
       </div>
-    </motion.div>
+    </MotionDiv>
   );
 }
