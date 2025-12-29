@@ -63,6 +63,39 @@ export default function Home() {
         </div>
       </section>
 
+            {/* BLOQUE CONFIANZA */}
+      <section className="bg-white py-24">
+        <div className="max-w-6xl mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-12">
+            ¿Por qué vender tu coche con <span className="text-blue-700">1ClikCar</span>?
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-12">
+            <div>
+              <h3 className="text-xl font-bold mb-3">Compra directa</h3>
+              <p className="text-gray-600">
+                No somos intermediarios ni concesionarios. Compramos el coche nosotros.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold mb-3">Sin compromiso</h3>
+              <p className="text-gray-600">
+                Recibes una oferta real y decides con total libertad.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold mb-3">Pago seguro</h3>
+              <p className="text-gray-600">
+                Transferencia bancaria clara y sin sorpresas.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
       {/* FORMULARIO */}
       <section id="form" className="py-24 px-4 bg-gray-50">
         <CompleteForm />
