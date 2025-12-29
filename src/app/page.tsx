@@ -24,7 +24,7 @@ export default function Home() {
       {/* HERO */}
       <section className="bg-gradient-to-b from-blue-50 to-white py-32 px-6">
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-extrabold mb-6">
+          <h1 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
             Compramos tu coche
             <br />
             <span className="text-blue-700">de forma directa y segura</span>
@@ -58,25 +58,61 @@ export default function Home() {
           </div>
         </div>
       </section>
+
       {/* METRICAS */}
-<section className="bg-gray-50 py-24">
-  <div className="max-w-6xl mx-auto px-6 text-center">
-    <div className="grid md:grid-cols-4 gap-8">
-      <Metric number="+1.200" label="Coches analizados" />
-      <Metric number="24h" label="Tiempo medio de respuesta" />
-      <Metric number="100%" label="Compra directa" />
-      <Metric number="España" label="Cobertura nacional" />
-    </div>
-  </div>
-</section>
+      <section className="bg-gray-50 py-24">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <div className="grid md:grid-cols-4 gap-8">
+            <Metric number="+1.200" label="Coches analizados" />
+            <Metric number="24h" label="Tiempo medio de respuesta" />
+            <Metric number="100%" label="Compra directa" />
+            <Metric number="España" label="Cobertura nacional" />
+          </div>
+        </div>
+      </section>
 
-
-      {/* DIFERENCIA */}
+      {/* DIFERENCIADORES */}
       <section className="bg-blue-900 text-white py-24">
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-12 px-6">
-          <Feature icon={<Euro size={36} />} title="Precio real" text="Sin intermediarios." />
-          <Feature icon={<Clock size={36} />} title="Rapidez" text="Proceso ágil." />
-          <Feature icon={<ShieldCheck size={36} />} title="Seguridad" text="Compra profesional." />
+          <Feature
+            icon={<Euro size={36} />}
+            title="Precio real"
+            text="Oferta directa sin subastas ni intermediarios."
+          />
+          <Feature
+            icon={<Clock size={36} />}
+            title="Rapidez"
+            text="Respuesta clara y proceso ágil."
+          />
+          <Feature
+            icon={<ShieldCheck size={36} />}
+            title="Seguridad"
+            text="Compra profesional y documentación clara."
+          />
+        </div>
+      </section>
+
+      {/* TESTIMONIOS */}
+      <section className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-4xl font-extrabold text-center mb-16">
+            Opiniones de clientes
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Testimonial
+              text="Proceso muy claro y sin sorpresas. Pago rápido y trato profesional."
+              author="Carlos · Madrid"
+            />
+            <Testimonial
+              text="Nada que ver con concesionarios. Trato directo y transparente."
+              author="Laura · Valencia"
+            />
+            <Testimonial
+              text="Desde el primer contacto me dieron confianza. Repetiría."
+              author="Miguel · Sevilla"
+            />
+          </div>
         </div>
       </section>
 
@@ -85,51 +121,34 @@ export default function Home() {
         <CompleteForm />
       </section>
 
+      {/* FAQ */}
+      <section className="bg-gray-100 py-24">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-4xl font-extrabold text-center mb-16">
+            Preguntas frecuentes
+          </h2>
+
+          <FAQ q="¿La valoración es gratuita?" a="Sí, totalmente gratuita y sin compromiso." />
+          <FAQ q="¿Tengo que aceptar la oferta?" a="No, tú decides si te encaja." />
+          <FAQ q="¿Cómo se realiza el pago?" a="Transferencia bancaria segura." />
+          <FAQ q="¿Compráis coches con muchos kilómetros?" a="Sí, analizamos cada caso individualmente." />
+        </div>
+      </section>
+
       {/* WHATSAPP */}
       <a
         href="https://wa.me/34600000000"
         target="_blank"
-        className="fixed bottom-6 right-6 bg-green-600 text-white p-5 rounded-full shadow-xl"
+        className="fixed bottom-6 right-6 bg-green-600 text-white p-5 rounded-full shadow-xl hover:scale-110 transition z-50"
       >
         <MessageCircle size={28} />
       </a>
-      {/* FAQ */}
-<section className="bg-gray-100 py-24">
-  <div className="max-w-4xl mx-auto px-6">
-    <h2 className="text-4xl font-extrabold text-center mb-16">
-      Preguntas frecuentes
-    </h2>
-
-    <FAQ
-      q="¿La valoración es gratuita?"
-      a="Sí, totalmente gratuita y sin compromiso."
-    />
-    <FAQ
-      q="¿Tengo que aceptar la oferta?"
-      a="No. Tú decides si te encaja la propuesta."
-    />
-    <FAQ
-      q="¿Cómo se realiza el pago?"
-      a="Pago mediante transferencia bancaria segura."
-    />
-    <FAQ
-      q="¿Compráis coches con muchos kilómetros?"
-      a="Sí, analizamos cada vehículo de forma individual."
-    />
-  </div>
-</section>
-function FAQ({ q, a }: any) {
-  return (
-    <div className="mb-6">
-      <h3 className="font-bold text-lg mb-2">{q}</h3>
-      <p className="text-gray-600">{a}</p>
-    </div>
-  );
-}
 
       {/* FOOTER */}
-      <footer className="text-center py-10 text-gray-500">
-        © {new Date().getFullYear()} 1ClikCar · Compra directa de vehículos
+      <footer className="bg-gray-100 text-center py-10 text-gray-500">
+        © {new Date().getFullYear()} 1ClikCar ·{" "}
+        <a href="/quienes-somos" className="underline">Quiénes somos</a> ·{" "}
+        <a href="/privacidad" className="underline">Privacidad</a>
       </footer>
     </>
   );
@@ -156,34 +175,32 @@ function Feature({ icon, title, text }: any) {
     </div>
   );
 }
-{/* TESTIMONIOS */}
-<section className="py-24 bg-white">
-  <div className="max-w-6xl mx-auto px-6">
-    <h2 className="text-4xl font-extrabold text-center mb-16">
-      Opiniones de clientes
-    </h2>
 
-    <div className="grid md:grid-cols-3 gap-8">
-      <Testimonial
-        text="Proceso muy claro y sin sorpresas. Me explicaron todo desde el principio y el pago fue rápido."
-        author="Carlos · Madrid"
-      />
-      <Testimonial
-        text="Nada que ver con concesionarios. Trato profesional y directo."
-        author="Laura · Valencia"
-      />
-      <Testimonial
-        text="Me dieron confianza desde el primer contacto. Repetiría sin dudar."
-        author="Miguel · Sevilla"
-      />
+function Metric({ number, label }: any) {
+  return (
+    <div className="bg-white rounded-2xl shadow-lg p-8">
+      <div className="text-4xl font-extrabold text-blue-700 mb-2">
+        {number}
+      </div>
+      <p className="text-gray-600 font-medium">{label}</p>
     </div>
-  </div>
-</section>
+  );
+}
+
 function Testimonial({ text, author }: any) {
   return (
     <div className="bg-gray-50 p-8 rounded-2xl shadow">
       <p className="text-gray-700 mb-6 italic">“{text}”</p>
       <p className="font-semibold text-blue-700">{author}</p>
+    </div>
+  );
+}
+
+function FAQ({ q, a }: any) {
+  return (
+    <div className="mb-6">
+      <h3 className="font-bold text-lg mb-2">{q}</h3>
+      <p className="text-gray-600">{a}</p>
     </div>
   );
 }
@@ -226,12 +243,11 @@ function CompleteForm() {
 
         <textarea
           name="info"
-          placeholder="Información adicional"
+          placeholder="Información adicional (estado, extras, observaciones...)"
           onChange={handleChange}
           className="border p-4 rounded-xl md:col-span-2"
         />
 
-        {/* CHECKBOX LEGAL */}
         <div className="md:col-span-2 flex gap-3 text-sm text-gray-600">
           <input type="checkbox" required />
           <p>
@@ -244,20 +260,11 @@ function CompleteForm() {
 
         <button
           onClick={sendForm}
-          className="md:col-span-2 bg-blue-700 hover:bg-blue-800 text-white py-5 rounded-xl text-lg font-bold"
+          className="md:col-span-2 bg-blue-700 hover:bg-blue-800 text-white py-5 rounded-xl text-lg font-bold transition"
         >
           Enviar información
         </button>
       </div>
     </div>
-    function Metric({ number, label }: any) {
-  return (
-    <div className="bg-white rounded-2xl shadow-lg p-8">
-      <div className="text-4xl font-extrabold text-blue-700 mb-2">
-        {number}
-      </div>
-      <p className="text-gray-600 font-medium">{label}</p>
-    </div>
   );
 }
-
