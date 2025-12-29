@@ -155,13 +155,22 @@ export default function Home() {
       </a>
 
       {/* WHATSAPP */}
-      <a
-        href="https://wa.me/34651164708"
-        target="_blank"
-        className="fixed bottom-20 md:bottom-6 right-6 bg-green-600 text-white p-5 rounded-full shadow-xl z-50"
-      >
-        <MessageCircle size={28} />
-      </a>
+     <a
+  href="https://wa.me/34651164708"
+  onClick={() => {
+    if (typeof window !== "undefined" && (window as any).gtag) {
+      (window as any).gtag("event", "click_whatsapp", {
+        event_category: "conversion",
+        event_label: "WhatsApp flotante",
+      });
+    }
+  }}
+  target="_blank"
+  className="fixed bottom-20 md:bottom-6 right-6 bg-green-600 text-white p-5 rounded-full shadow-xl z-50"
+>
+
+  
+
 
       {/* FOOTER */}
       <footer className="bg-gray-100 text-center py-10 text-gray-500 text-sm">
@@ -258,11 +267,20 @@ Info: ${form.info || ""}
         </div>
 
         <button
-          onClick={sendForm}
-          className="md:col-span-2 bg-blue-700 hover:bg-blue-800 text-white py-4 rounded-xl text-lg font-bold"
-        >
-          Quiero mi oferta
-        </button>
+  onClick={() => {
+    if (typeof window !== "undefined" && (window as any).gtag) {
+      (window as any).gtag("event", "click_offer", {
+        event_category: "conversion",
+        event_label: "Formulario principal",
+      });
+    }
+    sendForm();
+  }}
+  className="md:col-span-2 bg-blue-700 hover:bg-blue-800 text-white py-4 rounded-xl text-lg font-bold"
+>
+  Quiero mi oferta
+</button>
+
       </div>
     </div>
   );

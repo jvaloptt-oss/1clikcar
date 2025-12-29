@@ -19,16 +19,14 @@ export default function RootLayout({
         {/* Google Analytics */}
         <Script
           strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-TSSTESBTP0"
+          src="https://www.googletagmanager.com/gtag/js?id=G-3J0VG56MPF"
         />
-        <Script id="ga-init" strategy="afterInteractive">
+        <Script id="ga4-init" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-TSSTESBTP0', {
-              page_path: window.location.pathname,
-            });
+            gtag('config', 'G-3J0VG56MPF');
           `}
         </Script>
       </head>
