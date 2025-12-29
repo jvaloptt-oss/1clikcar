@@ -24,8 +24,38 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
+    import "./globals.css";
+import Script from "next/script";
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
     <html lang="es">
-      <body className={inter.className}>{children}</body>
+      <head>
+        {/* Google Analytics */}
+        <Script
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=G-TSSTESBTP0`}
+        />
+        <Script id="ga-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-TSSTESBTP0', {
+              page_path: window.location.pathname,
+            });
+          `}
+        </Script>
+      </head>
+
+      <body>{children}</body>
     </html>
+  );
+}
+
   );
 }
