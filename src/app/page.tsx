@@ -115,16 +115,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-            <div className="md:col-span-2 flex items-start gap-3 text-sm text-gray-600">
-  <input type="checkbox" required className="mt-1" />
-  <p>
-    He leído y acepto la{" "}
-    <a href="/privacidad" className="text-blue-700 underline">
-      política de privacidad
-    </a>{" "}
-    y autorizo el tratamiento de mis datos.
-  </p>
-</div>
 
       {/* FORMULARIO */}
       <section id="form" className="py-32 bg-white px-6">
@@ -133,7 +123,7 @@ export default function Home() {
 
       {/* WHATSAPP */}
       <a
-        href="https://wa.me/34600000000"
+        href="https://wa.me/34651164708"
         target="_blank"
         className="fixed bottom-6 right-6 bg-green-600 text-white p-5 rounded-full shadow-xl hover:scale-110 transition z-50"
       >
@@ -211,6 +201,20 @@ function CompleteForm() {
           onChange={handleChange}
           className="border p-4 rounded-xl md:col-span-2"
         />
+        <div className="md:col-span-2 flex items-start gap-3 text-sm text-gray-600">
+  <input
+    type="checkbox"
+    required
+    className="mt-1 accent-blue-700"
+  />
+  <p>
+    He leído y acepto la{" "}
+    <a href="/privacidad" className="text-blue-700 underline">
+      política de privacidad
+    </a>{" "}
+    y autorizo el tratamiento de mis datos.
+  </p>
+</div>
 
         <button className="md:col-span-2 bg-blue-700 hover:bg-blue-800 text-white py-5 rounded-xl text-lg font-bold transition">
           Enviar información
