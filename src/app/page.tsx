@@ -25,7 +25,7 @@ export default function Home() {
           href="#form"
           className="hidden md:inline-block bg-blue-700 hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold transition"
         >
-          Vender mi coche
+          Recibir oferta
         </a>
       </header>
 
@@ -41,18 +41,23 @@ export default function Home() {
           <h1 className="text-4xl md:text-6xl font-extrabold mb-5 leading-tight">
             Compramos tu coche
             <br />
-            <span className="text-blue-700">sin intermediarios</span>
+            <span className="text-blue-700">hoy mismo</span>
           </h1>
 
-          <p className="text-gray-600 text-lg md:text-xl mb-8 max-w-3xl mx-auto">
-            Oferta directa, trato profesional y compra segura.
+          <p className="text-gray-700 text-lg md:text-xl mb-6 max-w-3xl mx-auto">
+            Oferta directa y real.  
+            <strong> Sin concesionarios, sin regateos y sin compromiso.</strong>
+          </p>
+
+          <p className="text-gray-500 text-sm md:text-base mb-8">
+            Te contactamos por WhatsApp · Decides tú
           </p>
 
           <a
             href="#form"
-            className="inline-block bg-blue-700 hover:bg-blue-800 text-white px-10 py-4 rounded-xl text-lg font-semibold transition"
+            className="inline-block bg-blue-700 hover:bg-blue-800 text-white px-10 py-4 rounded-xl text-lg font-bold transition"
           >
-            Recibir oferta ahora
+            Recibir oferta sin compromiso
           </a>
         </MDiv>
       </section>
@@ -61,14 +66,26 @@ export default function Home() {
       <section className="py-20 md:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 md:px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-extrabold mb-12 md:mb-16">
-            Proceso en <span className="text-blue-700">3 pasos</span>
+            Así de fácil es vender tu coche
           </h2>
 
           <div className="grid md:grid-cols-3 gap-10 md:gap-12">
             {[
-              { n: "1", t: "Formulario", d: "Envíanos los datos del coche." },
-              { n: "2", t: "Contacto", d: "Te escribimos por WhatsApp." },
-              { n: "3", t: "Compra", d: "Compra directa y pago seguro." },
+              {
+                n: "1",
+                t: "Rellena el formulario",
+                d: "Solo lo necesario. Tardas menos de 1 minuto.",
+              },
+              {
+                n: "2",
+                t: "Te damos una oferta real",
+                d: "Sin llamadas comerciales ni presiones.",
+              },
+              {
+                n: "3",
+                t: "Decides tú",
+                d: "Aceptas solo si te encaja.",
+              },
             ].map((s, i) => (
               <MDiv
                 key={i}
@@ -95,18 +112,18 @@ export default function Home() {
           {[
             {
               icon: <Euro size={32} />,
-              t: "Precio real",
-              d: "Sin subastas ni concesionarios.",
+              t: "Precio justo",
+              d: "Basado en mercado real y estado del vehículo.",
             },
             {
               icon: <Clock size={32} />,
-              t: "Rapidez",
-              d: "Respuesta clara en pocas horas.",
+              t: "Respuesta rápida",
+              d: "Normalmente en menos de 24 horas.",
             },
             {
               icon: <ShieldCheck size={32} />,
-              t: "Seguridad",
-              d: "Proceso profesional y transparente.",
+              t: "Sin riesgos",
+              d: "Compra profesional y segura.",
             },
           ].map((f, i) => (
             <MDiv
@@ -136,7 +153,7 @@ export default function Home() {
         href="#form"
         className="fixed bottom-0 left-0 right-0 md:hidden bg-blue-700 text-white text-center py-4 font-bold text-lg z-50"
       >
-        Recibir oferta ahora
+        Quiero mi oferta
       </a>
 
       {/* WHATSAPP */}
@@ -186,9 +203,13 @@ function CompleteForm() {
       transition={{ duration: 0.5 }}
       className="max-w-3xl mx-auto bg-white rounded-3xl shadow-2xl p-10 md:p-16"
     >
-      <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-8">
-        Datos del vehículo
+      <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-6">
+        Recibe tu oferta sin compromiso
       </h2>
+
+      <p className="text-center text-gray-600 mb-8">
+        Te contactaremos por WhatsApp con una propuesta clara.
+      </p>
 
       <div className="grid md:grid-cols-2 gap-5">
         {["marca", "modelo", "año", "km", "provincia", "telefono"].map((f) => (
@@ -203,7 +224,7 @@ function CompleteForm() {
 
         <textarea
           name="info"
-          placeholder="Información adicional"
+          placeholder="Información adicional (estado, extras, etc.)"
           onChange={handleChange}
           className="border p-4 rounded-xl md:col-span-2"
         />
@@ -211,7 +232,7 @@ function CompleteForm() {
         <div className="md:col-span-2 flex gap-3 text-xs md:text-sm text-gray-600">
           <input type="checkbox" required />
           <p>
-            Acepto la{" "}
+            He leído y acepto la{" "}
             <a href="/privacidad" className="text-blue-700 underline">
               política de privacidad
             </a>
@@ -222,7 +243,7 @@ function CompleteForm() {
           onClick={sendForm}
           className="md:col-span-2 bg-blue-700 hover:bg-blue-800 text-white py-4 rounded-xl text-lg font-bold transition"
         >
-          Recibir oferta sin compromiso
+          Quiero mi oferta
         </button>
       </div>
     </MDiv>
