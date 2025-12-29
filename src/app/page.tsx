@@ -1,19 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { motion, HTMLMotionProps } from "framer-motion";
+import { motion } from "framer-motion";
 import { MessageCircle, ShieldCheck, Clock, Euro } from "lucide-react";
 
-/* =====================
-   FIX TYPING FRAMER
-===================== */
-const MotionDiv = (props: HTMLMotionProps<"div">) => (
-  <motion.div {...props} />
-);
+// 🔥 FIX DEFINITIVO: motion sin tipado estricto
+const MDiv: any = motion.div;
 
-/* =====================
-   ANIMATION VARIANTS
-===================== */
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0 },
@@ -39,7 +32,7 @@ export default function Home() {
 
       {/* HERO */}
       <section className="bg-gradient-to-b from-blue-50 to-white py-32 px-6">
-        <MotionDiv
+        <MDiv
           initial="hidden"
           animate="visible"
           variants={fadeUp}
@@ -63,7 +56,7 @@ export default function Home() {
           >
             Enviar datos del vehículo
           </a>
-        </MotionDiv>
+        </MDiv>
       </section>
 
       {/* PROCESO */}
@@ -79,7 +72,7 @@ export default function Home() {
               { n: "2", t: "Contacto", d: "Te llamamos o escribimos." },
               { n: "3", t: "Compra", d: "Compra directa y segura." },
             ].map((s, i) => (
-              <MotionDiv
+              <MDiv
                 key={i}
                 initial="hidden"
                 whileInView="visible"
@@ -92,7 +85,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-2xl font-bold">{s.t}</h3>
                 <p className="text-gray-600 mt-2">{s.d}</p>
-              </MotionDiv>
+              </MDiv>
             ))}
           </div>
         </div>
@@ -107,14 +100,14 @@ export default function Home() {
               t: "Precio real",
               d: "Oferta directa sin subastas.",
             },
-            { icon: <Clock size={36} />, t: "Rapidez", d: "Proceso ágil y claro." },
+            { icon: <Clock size={36} />, t: "Rapidez", d: "Proceso ágil." },
             {
               icon: <ShieldCheck size={36} />,
               t: "Seguridad",
               d: "Compra profesional.",
             },
           ].map((f, i) => (
-            <MotionDiv
+            <MDiv
               key={i}
               initial="hidden"
               whileInView="visible"
@@ -126,7 +119,7 @@ export default function Home() {
               <div className="mb-4 flex justify-center">{f.icon}</div>
               <h3 className="text-2xl font-bold">{f.t}</h3>
               <p className="opacity-80 mt-2">{f.d}</p>
-            </MotionDiv>
+            </MDiv>
           ))}
         </div>
       </section>
@@ -160,9 +153,6 @@ export default function Home() {
   );
 }
 
-/* =====================
-   FORMULARIO
-===================== */
 function CompleteForm() {
   const [form, setForm] = useState<any>({});
 
@@ -181,7 +171,7 @@ function CompleteForm() {
   };
 
   return (
-    <MotionDiv
+    <MDiv
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
@@ -228,6 +218,6 @@ function CompleteForm() {
           Recibir oferta sin compromiso
         </button>
       </div>
-    </MotionDiv>
+    </MDiv>
   );
 }
