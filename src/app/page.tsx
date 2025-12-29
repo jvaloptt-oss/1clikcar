@@ -95,6 +95,37 @@ export default function Home() {
         </div>
       </section>
 
+            {/* OPINIONES */}
+      <section className="bg-gray-50 py-24">
+        <div className="max-w-6xl mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-16">
+            Opiniones de clientes
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-12">
+            <div className="bg-white p-8 rounded-2xl shadow">
+              <p className="text-gray-600 mb-4">
+                “Proceso muy rápido y claro. Me contactaron por WhatsApp y en pocos días vendí el coche.”
+              </p>
+              <p className="font-bold">Carlos M. · Madrid</p>
+            </div>
+
+            <div className="bg-white p-8 rounded-2xl shadow">
+              <p className="text-gray-600 mb-4">
+                “Tenía dudas al principio, pero fue todo muy profesional y sin presión.”
+              </p>
+              <p className="font-bold">Laura G. · Valencia</p>
+            </div>
+
+            <div className="bg-white p-8 rounded-2xl shadow">
+              <p className="text-gray-600 mb-4">
+                “Me gustó que no hubiese intermediarios. Oferta justa y trato serio.”
+              </p>
+              <p className="font-bold">Javier R. · Sevilla</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* FORMULARIO */}
       <section id="form" className="py-24 px-4 bg-gray-50">
