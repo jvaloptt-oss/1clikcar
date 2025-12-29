@@ -1,156 +1,76 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { MessageCircle, ShieldCheck, Clock, Euro } from "lucide-react";
-
-const MDiv: any = motion.div;
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0 },
-};
+import { MessageCircle } from "lucide-react";
 
 export default function Home() {
   return (
     <>
       {/* HEADER */}
-      <header className="max-w-7xl mx-auto flex justify-between items-center px-4 md:px-8 py-4 md:py-6">
-        <div className="text-xl md:text-2xl font-extrabold">
+      <header className="max-w-7xl mx-auto flex justify-between items-center px-4 md:px-8 py-5">
+        <div className="text-2xl font-extrabold">
           <span className="text-blue-700">1Clik</span>
           <span className="text-black">Car</span>
         </div>
 
         <a
           href="#form"
-          className="hidden md:inline-block bg-blue-700 hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold transition"
+          className="hidden md:inline-block bg-blue-700 hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold"
         >
           Recibir oferta
         </a>
       </header>
 
       {/* HERO */}
-      <section className="bg-gradient-to-b from-blue-50 to-white pt-20 md:pt-32 pb-16 md:pb-32 px-4 md:px-6">
-        <MDiv
-          initial="hidden"
-          animate="visible"
-          variants={fadeUp}
-          transition={{ duration: 0.5 }}
-          className="max-w-5xl mx-auto text-center"
-        >
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-5 leading-tight">
+      <section className="bg-gradient-to-b from-blue-50 to-white py-24 px-4">
+        <div className="max-w-5xl mx-auto text-center">
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-6">
             Compramos tu coche
             <br />
             <span className="text-blue-700">hoy mismo</span>
           </h1>
 
-          <p className="text-gray-700 text-lg md:text-xl mb-6 max-w-3xl mx-auto">
+          <p className="text-gray-700 text-lg md:text-xl mb-6">
             Oferta directa y real.  
-            <strong> Sin concesionarios, sin regateos y sin compromiso.</strong>
+            <strong> Sin intermediarios y sin compromiso.</strong>
           </p>
 
-          <p className="text-gray-500 text-sm md:text-base mb-8">
+          <p className="text-gray-500 mb-8">
             Te contactamos por WhatsApp · Tú decides
           </p>
 
           <a
             href="#form"
-            className="inline-block bg-blue-700 hover:bg-blue-800 text-white px-10 py-4 rounded-xl text-lg font-bold transition"
+            className="inline-block bg-blue-700 hover:bg-blue-800 text-white px-10 py-4 rounded-xl text-lg font-bold"
           >
             Recibir oferta sin compromiso
           </a>
-        </MDiv>
+        </div>
       </section>
 
       {/* PROCESO */}
-      <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-4 md:px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-12 md:mb-16">
+      <section className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-16">
             Así de fácil es vender tu coche
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-10 md:gap-12">
-            {[
-              {
-                n: "1",
-                t: "Rellena el formulario",
-                d: "Solo lo necesario. Menos de 1 minuto.",
-              },
-              {
-                n: "2",
-                t: "Recibe una oferta real",
-                d: "Sin llamadas comerciales ni presión.",
-              },
-              {
-                n: "3",
-                t: "Tú decides",
-                d: "Aceptas solo si te encaja.",
-              },
-            ].map((s, i) => (
-              <MDiv
-                key={i}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeUp}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-              >
-                <div className="text-5xl font-extrabold text-blue-700 mb-3">
-                  {s.n}
-                </div>
-                <h3 className="text-xl font-bold">{s.t}</h3>
-                <p className="text-gray-600 mt-2">{s.d}</p>
-              </MDiv>
-            ))}
+          <div className="grid md:grid-cols-3 gap-12">
+            <Step n="1" title="Rellena el formulario" text="Solo datos básicos. Menos de 1 minuto." />
+            <Step n="2" title="Recibe una oferta" text="Clara, directa y sin presión." />
+            <Step n="3" title="Tú decides" text="Aceptas solo si te encaja." />
           </div>
         </div>
       </section>
 
-      {/* DIFERENCIADORES */}
-      <section className="bg-blue-900 text-white py-20 md:py-24">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-10 md:gap-12 px-4 md:px-6">
-          {[
-            {
-              icon: <Euro size={32} />,
-              t: "Precio justo",
-              d: "Basado en mercado real y estado.",
-            },
-            {
-              icon: <Clock size={32} />,
-              t: "Respuesta rápida",
-              d: "Normalmente en menos de 24h.",
-            },
-            {
-              icon: <ShieldCheck size={32} />,
-              t: "Sin riesgos",
-              d: "Compra profesional y segura.",
-            },
-          ].map((f, i) => (
-            <MDiv
-              key={i}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="text-center"
-            >
-              <div className="mb-3 flex justify-center">{f.icon}</div>
-              <h3 className="text-xl font-bold">{f.t}</h3>
-              <p className="opacity-80 mt-2 text-sm md:text-base">{f.d}</p>
-            </MDiv>
-          ))}
-        </div>
-      </section>
-
       {/* FORMULARIO */}
-      <section id="form" className="py-24 px-4 md:px-6 bg-gray-50">
+      <section id="form" className="py-24 px-4 bg-gray-50">
         <CompleteForm />
       </section>
 
       {/* FAQ */}
       <section className="bg-gray-100 py-24">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-4xl font-extrabold text-center mb-16">
             Preguntas frecuentes
           </h2>
@@ -172,31 +92,41 @@ export default function Home() {
 
       {/* WHATSAPP */}
       <a
-  href="https://wa.me/34651164708"
-  onClick={() => {
-    if (window.gtag) {
-      window.gtag("event", "click_whatsapp", {
-        event_category: "conversion",
-        event_label: "WhatsApp flotante",
-      });
-    }
-  }}
-  target="_blank"
-  className="fixed bottom-20 md:bottom-6 right-6 bg-green-600 text-white p-5 rounded-full shadow-xl hover:scale-110 transition z-50"
->
-
+        href="https://wa.me/34651164708"
+        target="_blank"
+        className="fixed bottom-20 md:bottom-6 right-6 bg-green-600 text-white p-5 rounded-full shadow-xl z-50"
+      >
+        <MessageCircle size={28} />
+      </a>
 
       {/* FOOTER */}
       <footer className="bg-gray-100 text-center py-10 text-gray-500 text-sm">
-        © {new Date().getFullYear()} 1ClikCar ·{" "}
-        <a href="/quienes-somos" className="underline">Quiénes somos</a> ·{" "}
-        <a href="/privacidad" className="underline">Privacidad</a>
+        © {new Date().getFullYear()} 1ClikCar · Compra directa de vehículos
       </footer>
     </>
   );
 }
 
-/* FORMULARIO */
+/* COMPONENTES */
+
+function Step({ n, title, text }: { n: string; title: string; text: string }) {
+  return (
+    <div>
+      <div className="text-5xl font-extrabold text-blue-700 mb-4">{n}</div>
+      <h3 className="text-xl font-bold mb-2">{title}</h3>
+      <p className="text-gray-600">{text}</p>
+    </div>
+  );
+}
+
+function FAQ({ q, a }: { q: string; a: string }) {
+  return (
+    <div className="mb-6">
+      <h3 className="font-bold text-lg mb-2">{q}</h3>
+      <p className="text-gray-600">{a}</p>
+    </div>
+  );
+}
 
 function CompleteForm() {
   const [form, setForm] = useState<any>({});
@@ -204,26 +134,23 @@ function CompleteForm() {
   const handleChange = (e: any) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
-  const sendForm = async () => {
-    const res = await fetch("/api/lead", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
-    });
+  const sendForm = () => {
+    const text = `
+Marca: ${form.marca || ""}
+Modelo: ${form.modelo || ""}
+Año: ${form.año || ""}
+KM: ${form.km || ""}
+Provincia: ${form.provincia || ""}
+Teléfono: ${form.telefono || ""}
+Info: ${form.info || ""}
+    `;
 
-    const data = await res.json();
-    window.open(data.whatsappUrl, "_blank");
+    const url = `https://wa.me/34651164708?text=${encodeURIComponent(text)}`;
+    window.open(url, "_blank");
   };
 
   return (
-    <MDiv
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      variants={fadeUp}
-      transition={{ duration: 0.5 }}
-      className="max-w-3xl mx-auto bg-white rounded-3xl shadow-2xl p-10 md:p-16"
-    >
+    <div className="max-w-3xl mx-auto bg-white rounded-3xl shadow-2xl p-10 md:p-16">
       <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-6">
         Recibe tu oferta sin compromiso
       </h2>
@@ -239,7 +166,7 @@ function CompleteForm() {
             name={f}
             placeholder={f.toUpperCase()}
             onChange={handleChange}
-            className="border p-4 rounded-xl text-base"
+            className="border p-4 rounded-xl"
           />
         ))}
 
@@ -250,7 +177,7 @@ function CompleteForm() {
           className="border p-4 rounded-xl md:col-span-2"
         />
 
-        <div className="md:col-span-2 flex gap-3 text-xs md:text-sm text-gray-600">
+        <div className="md:col-span-2 flex gap-3 text-sm text-gray-600">
           <input type="checkbox" required />
           <p>
             He leído y acepto la{" "}
@@ -261,32 +188,12 @@ function CompleteForm() {
         </div>
 
         <button
-  onClick={() => {
-    if (window.gtag) {
-      window.gtag("event", "click_offer", {
-        event_category: "conversion",
-        event_label: "Formulario principal",
-      });
-    }
-    sendForm();
-  }}
-  className="md:col-span-2 bg-blue-700 hover:bg-blue-800 text-white py-4 rounded-xl text-lg font-bold transition"
->
-  Quiero mi oferta
-</button>
-
+          onClick={sendForm}
+          className="md:col-span-2 bg-blue-700 hover:bg-blue-800 text-white py-4 rounded-xl text-lg font-bold"
+        >
+          Quiero mi oferta
+        </button>
       </div>
-    </MDiv>
-  );
-}
-
-/* FAQ ITEM */
-
-function FAQ({ q, a }: any) {
-  return (
-    <div className="mb-6">
-      <h3 className="font-bold text-lg mb-2">{q}</h3>
-      <p className="text-gray-600">{a}</p>
     </div>
   );
 }
