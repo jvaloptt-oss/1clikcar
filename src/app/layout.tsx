@@ -1,31 +1,12 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
-
-export const metadata = {
-  title: "1ClikCar | Compramos tu coche en toda España",
-  description:
-    "Compra directa de coches sin intermediarios. Valoración profesional y pago rápido en toda España.",
-  keywords: [
-    "comprar coche",
-    "vender coche",
-    "compramos tu coche",
-    "venta coche usada",
-    "tasación coche",
-  ],
-};
-
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    import "./globals.css";
+import type { Metadata } from "next";
 import Script from "next/script";
+
+export const metadata: Metadata = {
+  title: "1ClikCar | Compramos tu coche hoy mismo",
+  description:
+    "Compra directa de coches sin intermediarios. Oferta real, rápida y sin compromiso.",
+};
 
 export default function RootLayout({
   children,
@@ -38,7 +19,7 @@ export default function RootLayout({
         {/* Google Analytics */}
         <Script
           strategy="afterInteractive"
-          src={`https://www.googletagmanager.com/gtag/js?id=G-TSSTESBTP0`}
+          src="https://www.googletagmanager.com/gtag/js?id=G-TSSTESBTP0"
         />
         <Script id="ga-init" strategy="afterInteractive">
           {`
@@ -51,11 +32,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-
       <body>{children}</body>
     </html>
-  );
-}
-
   );
 }
