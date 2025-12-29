@@ -50,7 +50,7 @@ export default function Home() {
           </p>
 
           <p className="text-gray-500 text-sm md:text-base mb-8">
-            Te contactamos por WhatsApp · Decides tú
+            Te contactamos por WhatsApp · Tú decides
           </p>
 
           <a
@@ -74,16 +74,16 @@ export default function Home() {
               {
                 n: "1",
                 t: "Rellena el formulario",
-                d: "Solo lo necesario. Tardas menos de 1 minuto.",
+                d: "Solo lo necesario. Menos de 1 minuto.",
               },
               {
                 n: "2",
-                t: "Te damos una oferta real",
-                d: "Sin llamadas comerciales ni presiones.",
+                t: "Recibe una oferta real",
+                d: "Sin llamadas comerciales ni presión.",
               },
               {
                 n: "3",
-                t: "Decides tú",
+                t: "Tú decides",
                 d: "Aceptas solo si te encaja.",
               },
             ].map((s, i) => (
@@ -113,12 +113,12 @@ export default function Home() {
             {
               icon: <Euro size={32} />,
               t: "Precio justo",
-              d: "Basado en mercado real y estado del vehículo.",
+              d: "Basado en mercado real y estado.",
             },
             {
               icon: <Clock size={32} />,
               t: "Respuesta rápida",
-              d: "Normalmente en menos de 24 horas.",
+              d: "Normalmente en menos de 24h.",
             },
             {
               icon: <ShieldCheck size={32} />,
@@ -146,6 +146,20 @@ export default function Home() {
       {/* FORMULARIO */}
       <section id="form" className="py-24 px-4 md:px-6 bg-gray-50">
         <CompleteForm />
+      </section>
+
+      {/* FAQ */}
+      <section className="bg-gray-100 py-24">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-4xl font-extrabold text-center mb-16">
+            Preguntas frecuentes
+          </h2>
+
+          <FAQ q="¿La oferta es gratuita?" a="Sí, totalmente gratuita y sin compromiso." />
+          <FAQ q="¿Tengo que vender el coche?" a="No, tú decides si aceptas la oferta." />
+          <FAQ q="¿Cómo se realiza el pago?" a="Mediante transferencia bancaria segura." />
+          <FAQ q="¿Compráis coches con muchos kilómetros?" a="Sí, valoramos todo tipo de vehículos." />
+        </div>
       </section>
 
       {/* BOTÓN FIJO MÓVIL */}
@@ -247,5 +261,16 @@ function CompleteForm() {
         </button>
       </div>
     </MDiv>
+  );
+}
+
+/* FAQ ITEM */
+
+function FAQ({ q, a }: any) {
+  return (
+    <div className="mb-6">
+      <h3 className="font-bold text-lg mb-2">{q}</h3>
+      <p className="text-gray-600">{a}</p>
+    </div>
   );
 }
