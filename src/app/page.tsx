@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { MessageCircle, ShieldCheck, Clock, Euro } from "lucide-react";
 
-// 🔥 FIX DEFINITIVO: motion sin tipado estricto
+// FIX DEFINITIVO FRAMER MOTION + TS
 const MDiv: any = motion.div;
 
 const fadeUp = {
@@ -98,13 +98,17 @@ export default function Home() {
             {
               icon: <Euro size={36} />,
               t: "Precio real",
-              d: "Oferta directa sin subastas.",
+              d: "Oferta directa sin subastas ni intermediarios.",
             },
-            { icon: <Clock size={36} />, t: "Rapidez", d: "Proceso ágil." },
+            {
+              icon: <Clock size={36} />,
+              t: "Rapidez",
+              d: "Proceso ágil y sin esperas innecesarias.",
+            },
             {
               icon: <ShieldCheck size={36} />,
               t: "Seguridad",
-              d: "Compra profesional.",
+              d: "Compra profesional con gestión clara.",
             },
           ].map((f, i) => (
             <MDiv
@@ -129,6 +133,20 @@ export default function Home() {
         <CompleteForm />
       </section>
 
+      {/* FAQ */}
+      <section className="bg-gray-100 py-24">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-4xl font-extrabold text-center mb-16">
+            Preguntas frecuentes
+          </h2>
+
+          <FAQ q="¿La valoración es gratuita?" a="Sí, totalmente gratuita y sin compromiso." />
+          <FAQ q="¿Tengo que aceptar la oferta?" a="No, tú decides si te encaja." />
+          <FAQ q="¿Cómo se realiza el pago?" a="Mediante transferencia bancaria segura." />
+          <FAQ q="¿Compráis coches con muchos kilómetros?" a="Sí, estudiamos cada vehículo de forma individual." />
+        </div>
+      </section>
+
       {/* WHATSAPP */}
       <a
         href="https://wa.me/34600000000"
@@ -141,17 +159,14 @@ export default function Home() {
       {/* FOOTER */}
       <footer className="bg-gray-100 text-center py-10 text-gray-500">
         © {new Date().getFullYear()} 1ClikCar ·{" "}
-        <a href="/quienes-somos" className="underline">
-          Quiénes somos
-        </a>{" "}
-        ·{" "}
-        <a href="/privacidad" className="underline">
-          Privacidad
-        </a>
+        <a href="/quienes-somos" className="underline">Quiénes somos</a> ·{" "}
+        <a href="/privacidad" className="underline">Privacidad</a>
       </footer>
     </>
   );
 }
+
+/* ================= FORMULARIO ================= */
 
 function CompleteForm() {
   const [form, setForm] = useState<any>({});
@@ -219,5 +234,16 @@ function CompleteForm() {
         </button>
       </div>
     </MDiv>
+  );
+}
+
+/* ================= FAQ ================= */
+
+function FAQ({ q, a }: any) {
+  return (
+    <div className="mb-6">
+      <h3 className="font-bold text-lg mb-2">{q}</h3>
+      <p className="text-gray-600">{a}</p>
+    </div>
   );
 }
